@@ -63,7 +63,34 @@ X_val = X[2000:]
 Y_train = Y[:2000]
 Y_val= Y[2000:]
 
-trained = model.fit(X_train, Y_train, epochs=25, validation_data=(X_val, Y_val))
+trained = model.fit(X_train, Y_train, epochs=15, validation_data=(X_val, Y_val))
 
-#%%
 
+#%% 모델 저장
+
+model.save('yawn.h5')
+
+
+#%% 시각화
+
+import matplotlib.pyplot as plt
+
+# 정확도
+plt.plot(trained.history['accuracy'])
+plt.plot(trained.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'validataion'], loc='upper left')
+plt.show()
+
+# 손실
+plt.plot(trained.history['loss'])
+plt.plot(trained.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'validation'], loc='upper left')
+plt.show()
+
+model.summary()
