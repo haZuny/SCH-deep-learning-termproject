@@ -20,7 +20,7 @@ if cap.isOpened():
         # 이미지를 보여주는 방식과 같습니다.
  
         if cv2.waitKey(1) & 0xFF == 27:
-            break123
+            break
         # 종료 커맨드.
  
 cap.release()
