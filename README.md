@@ -1,8 +1,4 @@
-# 졸음 감지 모델
-
-<br>
-
-## 성능
+# 성능
 - 하품 분류 모델
   - 검증 정확도: 0.9354
   - 검증 손실: 0.1662
@@ -12,12 +8,12 @@
  
 <br>
  
-## 실행 영상
+# 실행 영상
 https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/19d59967-7d19-4223-88bf-f696f9154489
  
 <br>
 
-## 발표 자료
+# 발표 자료
 ![슬라이드1](https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/57f58291-bb1a-4a6f-977b-920ce9d9822f)
 ![슬라이드2](https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/d12293fb-0811-451a-b429-0b201737f433)
 ![슬라이드3](https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/f401e5f1-cee7-4880-ae01-0f00c6a378c1)
