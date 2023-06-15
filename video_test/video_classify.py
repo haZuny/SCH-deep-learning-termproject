@@ -4,8 +4,6 @@ import load_yawn, load_eye
 import cv2, time
 import tensorflow as tf
 
-# 불러올 비디오 영상
-capture = cv2.VideoCapture('./test-video8.mp4')
 
 # 얼굴, 눈 객체 추출 정의
 face_classifier = cv2.CascadeClassifier('.\haarcascade_frontalface_alt2.xml')
@@ -15,7 +13,11 @@ eye_classifier = cv2.CascadeClassifier('.\haarcascade_eye.xml')
 eyeModel = tf.keras.models.load_model('./eye.h5')
 
 prev_time = 0
-FPS = 8 # 초당 프레임(낮을수록 부담X but 끊김)
+FPS = 20 # 초당 프레임(낮을수록 부담X but 끊김)
+waitTime = 10   # 화면 전화 대기 시간
+
+# 불러올 비디오 영상
+capture = cv2.VideoCapture('./test-video1.mp4')
 
 while capture.isOpened():
 
@@ -24,6 +26,7 @@ while capture.isOpened():
     current_time = time.time() - prev_time
     
     if run and current_time > 1./FPS:
+        
         prev_time = time.time()
     
         # 얼굴 객체 탐지
@@ -55,7 +58,6 @@ while capture.isOpened():
             eyes.append((x+eyeW*3, y+eyeH, eyeW, eyeH))
     
             for (ex, ey, ew, eh) in eyes:
-                print(ex, ey, ew, eh)
                 # 눈 감은 여부 탐색
                 #eyeClose = load_eye.predict_frame(face_half[ey:ey+eh, ex:ex+ew], eyeModel)
                 eyeClose = load_eye.predict_frame(frame[ey:ey+eh, ex:ex+ew], eyeModel)
@@ -74,14 +76,17 @@ while capture.isOpened():
                             fontScale = 2, color=(0,0,255), thickness=2, bottomLeftOrigin=False)
                 # 눈 파란색 사각형 그리기
                 cv2.rectangle(frame, (ex, ey, ew, eh), (0, 0, 255), 2) 
-        else:
-            print('not run')
+                
+        # 이미지 띄우기
+        cv2.imshow('video', frame)
+        if cv2.waitKey(waitTime) & 0xFF == ord('q'):
+            break
+        
+    if run == False:
+        break
                 
         
-        # 이미지 띄우기, waitKey: 속도(높을수록 느려짐)
-        cv2.imshow('video', frame)
-        if cv2.waitKey(10) & 0xFF == ord('q'):
-            break
+        
 
 capture.release()
 cv2.destroyAllWindows()
