@@ -10,7 +10,7 @@
   - 검증 손실: 0.0137
  
 # 실행 영상
-![실행영상](https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/19d59967-7d19-4223-88bf-f696f9154489)
+https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/19d59967-7d19-4223-88bf-f696f9154489
  
 <br>
 
