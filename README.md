@@ -1,7 +1,8 @@
-# SCH-deep-learning-termproject
-[딥러닝이해] 하품 분류 모델
+# 졸음 감지 모델
 
-# 성능
+<br>
+
+## 성능
 - 하품 분류 모델
   - 검증 정확도: 0.9354
   - 검증 손실: 0.1662
@@ -9,7 +10,9 @@
   - 검증 정확도: 0.9957
   - 검증 손실: 0.0137
  
-# 실행 영상
+<br>
+ 
+## 실행 영상
 https://github.com/haZuny/SCH-deep-learning-termproject/assets/64102831/19d59967-7d19-4223-88bf-f696f9154489
  
 <br>
